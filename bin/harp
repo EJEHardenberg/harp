@@ -85,11 +85,13 @@ program
 program
   .command('server [path]')
   .option('-p, --port <port>', 'specify port to listen on')
+  .option('-L, --logging', 'Enable informational logging')
   .description('start harp server')
   .action(function(path, program){
     var projectPath = nodePath.resolve(process.cwd(), path || "")
     var port        = program.port || 9000
-    harp.server(projectPath, { port: port }, function(){
+    var logging     = program.logging || false
+    harp.server(projectPath, { port: port, logging: logging }, function(){
       output("Your server is listening at http://localhost:" + port + "/")
     })
   })
