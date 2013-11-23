@@ -84,6 +84,10 @@ You may optionally supply a port to listen on...
 
     harp server --port 8002
 
+And you can enable request logging by specifing the flag
+
+    harp server --logging
+
 Compile an application from the root of your application by running...
 
     harp compile
